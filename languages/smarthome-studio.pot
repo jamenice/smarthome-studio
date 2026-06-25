@@ -1,0 +1,360 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Smarthome Studio\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-06 06:56+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.0; wp-6.8.1; php-8.2.18\n"
+"X-Domain: smarthome-studio"
+
+#: admin/class-field-manager.php:340
+msgid "404 Page"
+msgstr ""
+
+#: includes/class-smarthome-studio.php:303
+msgid "Activate Elementor"
+msgstr ""
+
+#. Description of the plugin
+msgid "Add header, footer, menu builder for jwsthemes themes"
+msgstr ""
+
+#: admin/class-post-type.php:108
+msgid "Add New Layout"
+msgstr ""
+
+#: admin/class-field-manager.php:560
+msgid "Add Rule"
+msgstr ""
+
+#: admin/class-metaboxes.php:146
+msgid "After Footer"
+msgstr ""
+
+#: admin/class-metaboxes.php:144
+msgid "After Header"
+msgstr ""
+
+#: admin/class-post-type.php:299
+msgid "All"
+msgstr ""
+
+#: admin/class-field-manager.php:393
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: admin/class-field-manager.php:398 admin/class-field-manager.php:404
+#, php-format
+msgid "All %s Archive"
+msgstr ""
+
+#: admin/class-field-manager.php:339
+msgid "All Agencies Page"
+msgstr ""
+
+#: admin/class-field-manager.php:338
+msgid "All Agents Page"
+msgstr ""
+
+#: admin/class-field-manager.php:311
+msgid "All Archives"
+msgstr ""
+
+#: admin/class-post-type.php:110
+msgid "All Layouts"
+msgstr ""
+
+#: admin/class-field-manager.php:336
+msgid "All Listings Pages"
+msgstr ""
+
+#: admin/class-field-manager.php:309
+msgid "All Single Agencies"
+msgstr ""
+
+#: admin/class-field-manager.php:308
+msgid "All Single Agents"
+msgstr ""
+
+#: admin/class-field-manager.php:307
+msgid "All Single Listings"
+msgstr ""
+
+#: admin/class-field-manager.php:310
+msgid "All Single Posts"
+msgstr ""
+
+#: admin/class-field-manager.php:306
+msgid "All Singulars"
+msgstr ""
+
+#: elementor/class-smarthome-elementor.php:244
+#: elementor/class-smarthome-elementor.php:247
+msgid "Apply & Preview"
+msgstr ""
+
+#: admin/class-field-manager.php:345
+msgid "Author Archive"
+msgstr ""
+
+#: admin/class-metaboxes.php:145
+msgid "Before Footer"
+msgstr ""
+
+#: admin/class-metaboxes.php:143
+msgid "Before Header"
+msgstr ""
+
+#: admin/class-metaboxes.php:121 includes/helpers.php:37
+msgid "Block"
+msgstr ""
+
+#: admin/class-metaboxes.php:136
+msgid "Block Hook"
+msgstr ""
+
+#: admin/class-field-manager.php:342
+msgid "Blog / Posts Page"
+msgstr ""
+
+#: admin/class-field-manager.php:341
+msgid "Blog / Search Page"
+msgstr ""
+
+#: admin/class-post-type.php:50 admin/class-metaboxes.php:50
+#: admin/class-field-manager.php:84
+#: includes/class-smarthome-render-template.php:69
+msgid "Cloning is forbidden."
+msgstr ""
+
+#: admin/class-metaboxes.php:193
+msgid "Create Display Rule"
+msgstr ""
+
+#: admin/class-metaboxes.php:213
+msgid "Create Exlcude Rule"
+msgstr ""
+
+#: admin/class-metaboxes.php:142
+msgid "Custom (Shortcode)"
+msgstr ""
+
+#: admin/class-field-manager.php:344
+msgid "Date Archive"
+msgstr ""
+
+#: admin/class-field-manager.php:546
+msgid "Define Exclusion Rule"
+msgstr ""
+
+#: admin/class-metaboxes.php:184
+msgid "Display Location"
+msgstr ""
+
+#: admin/class-post-type.php:152
+msgid "Display Rules"
+msgstr ""
+
+#: admin/class-post-type.php:109
+msgid "Edit Layout"
+msgstr ""
+
+#: admin/class-field-manager.php:305
+msgid "Entire Website"
+msgstr ""
+
+#: admin/class-metaboxes.php:204
+msgid "Exlcude Location"
+msgstr ""
+
+#: admin/class-metaboxes.php:107 includes/helpers.php:33
+msgid "Footer"
+msgstr ""
+
+#: admin/class-field-manager.php:343
+msgid "Front Page"
+msgstr ""
+
+#: admin/class-metaboxes.php:105 includes/helpers.php:32
+msgid "Header"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://studio.smarthome.co"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://themeforest.net/user/jwsthemes/"
+msgstr ""
+
+#: includes/class-smarthome-studio.php:308
+#: includes/class-smarthome-studio.php:339
+msgid "Install Elementor"
+msgstr ""
+
+#. Author of the plugin
+msgid "Jwsthemes, Waqas Riaz"
+msgstr ""
+
+#: admin/class-metaboxes.php:117
+msgid "Listing Archive"
+msgstr ""
+
+#: admin/class-field-manager.php:337
+msgid "Listings Search Page"
+msgstr ""
+
+#: admin/class-metaboxes.php:119 includes/helpers.php:36
+msgid "Mega Menu"
+msgstr ""
+
+#: admin/class-smarthome-studio-admin.php:364
+msgid "or more characters"
+msgstr ""
+
+#: elementor/class-smarthome-elementor.php:196
+msgid "Page"
+msgstr ""
+
+#: elementor/class-smarthome-elementor.php:195
+msgid "Post"
+msgstr ""
+
+#: elementor/class-smarthome-elementor.php:212
+msgid "Post Type to Preview Dynamic Content"
+msgstr ""
+
+#: elementor/class-smarthome-elementor.php:189
+msgid "Preview Settings"
+msgstr ""
+
+#: admin/class-smarthome-studio-admin.php:363
+msgid "Search pages / post / categories"
+msgstr ""
+
+#: admin/class-smarthome-studio-admin.php:365
+msgid "Searching…"
+msgstr ""
+
+#: admin/class-field-manager.php:466 admin/class-field-manager.php:571
+msgid "Select"
+msgstr ""
+
+#: admin/class-metaboxes.php:141
+msgid "Select a Hook"
+msgstr ""
+
+#: admin/class-metaboxes.php:103
+msgid "Select Option"
+msgstr ""
+
+#: elementor/class-smarthome-elementor.php:225
+msgid "Select Post"
+msgstr ""
+
+#: admin/class-post-type.php:153 admin/class-metaboxes.php:156
+msgid "Shortcode"
+msgstr ""
+
+#: includes/helpers.php:34
+msgid "Single"
+msgstr ""
+
+#: admin/class-metaboxes.php:113
+msgid "Single Agency"
+msgstr ""
+
+#: admin/class-metaboxes.php:111
+msgid "Single Agent"
+msgstr ""
+
+#: admin/class-metaboxes.php:109
+msgid "Single Listing"
+msgstr ""
+
+#: admin/class-metaboxes.php:115
+msgid "Single Post"
+msgstr ""
+
+#: admin/class-metaboxes.php:123 includes/helpers.php:38
+msgid "Slider"
+msgstr ""
+
+#. Name of the plugin
+msgid "Smarthome Studio"
+msgstr ""
+
+#: admin/class-field-manager.php:315
+msgid "Special Pages"
+msgstr ""
+
+#: admin/class-field-manager.php:320
+msgid "Specific Pages / Listings / Posts / Taxonomies, etc."
+msgstr ""
+
+#: admin/class-field-manager.php:319
+msgid "Specific Selection"
+msgstr ""
+
+#: admin/class-field-manager.php:303
+msgid "Standard"
+msgstr ""
+
+#: admin/class-metaboxes.php:98
+msgid "Template Type"
+msgstr ""
+
+#: includes/class-smarthome-studio.php:327
+#, php-format
+msgid ""
+"The %1$sSmarthome Studio%2$s plugin has stopped working because you are "
+"using an older version of %1$sElementor%2$s plugin."
+msgstr ""
+
+#: includes/class-smarthome-studio.php:296
+#, php-format
+msgid ""
+"The %1$sSmarthome Studio%2$s plugin requires %1$sElementor%2$s plugin "
+"installed & activated."
+msgstr ""
+
+#: admin/class-post-type.php:106 admin/class-post-type.php:107
+msgid "Theme Builder"
+msgstr ""
+
+#: admin/class-post-type.php:95
+msgctxt "Theme Builder"
+msgid "Type"
+msgstr ""
+
+#: admin/class-metaboxes.php:125 includes/helpers.php:39
+msgid "Title Bar"
+msgstr ""
+
+#: admin/class-post-type.php:151
+msgid "Type"
+msgstr ""
+
+#: admin/class-post-type.php:59 admin/class-metaboxes.php:59
+#: admin/class-field-manager.php:93
+#: includes/class-smarthome-render-template.php:78
+msgid "Unserializing instances of this class is forbidden."
+msgstr ""
+
+#: includes/class-smarthome-studio.php:334
+msgid "Update Elementor"
+msgstr ""
+
+#: admin/class-field-manager.php:349
+msgid "WooCommerce Shop Page"
+msgstr ""

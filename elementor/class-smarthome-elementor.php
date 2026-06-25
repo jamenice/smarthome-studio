@@ -1,0 +1,300 @@
+<?php
+namespace SmarthomeStudio;
+use Elementor\Controls_Manager;
+/*use Elementor\Core\DynamicTags\Base_Tag;
+use Elementor\Core\DynamicTags\Dynamic_CSS;
+use Elementor\Core\Files\CSS\Post;*/
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+if( ! class_exists( 'JWS_Elementor' ) ) {
+    final class JWS_Elementor {
+
+        const HOUZEZ_GROUP = 'smarthome_studio';
+
+        /**
+         * Current theme template
+         *
+         * @var String
+         */
+        public $template;
+
+        /**
+         * Instance of Elemenntor Frontend class.
+         *
+         * @var \Elementor\Frontend()
+         */
+        private static $elementor_instance;
+
+        /**
+         * The single instance of the class.
+         *
+         * @var JWS_Elementor
+         * @since 1.0
+         */
+        private static $_instance;
+
+        /**
+         * Main JWS_Elementor Instance.
+         *
+         * Ensures only one instance of JWS_Elementor is loaded or can be loaded.
+         *
+         * @since 1.0
+         * @static
+         * @return JWS_Elementor - Main instance.
+         */
+        public static function instance() {
+            if ( is_null( self::$_instance ) ) {
+                self::$_instance = new self();
+            }
+            return self::$_instance;
+        }
+
+        /**
+         * Constructor function.
+         * @access  public
+         * @since   1.0.0
+         * @return  void
+         */
+        public function __construct() {
+            if ( defined( 'ELEMENTOR_VERSION' ) && is_callable( 'Elementor\Plugin::instance' ) ) {
+                self::$elementor_instance = \Elementor\Plugin::instance();
+                // Scripts and styles.
+                add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+                add_shortcode( 'jws_template', array( $this, 'render_shortcode' ) );
+
+                //add_action( 'elementor/documents/register_controls', array( $this, 'add_preview_settings_section' ) );
+
+                // Dynamic tags
+                add_action( 'elementor/dynamic_tags/register', array( $this, 'register_dynamic_tags' ) );
+            }
+        }
+
+        /**
+         * Register custom dynamic tags.
+         *
+         * @param \Elementor\Core\DynamicTags\Manager $manager
+         */
+        public function register_dynamic_tags( $manager ): void {
+            require_once JWS_DIR_PATH . 'elementor/dynamic-tags/class-image-dynamic-tag.php';
+
+            // Register our custom group so it shows up in the ⚡ panel
+            $manager->register_group( 'jws-dynamic', [
+                'title' => __( 'JWS Dynamic', 'smarthome-studio' ),
+            ] );
+
+            $manager->register( new \SmarthomeStudio\DynamicTags\Image_Dynamic_Tag() );
+        }
+
+        /**
+         * Enqueue styles and scripts.
+         */
+        public function enqueue_scripts() {
+
+            if (! class_exists( '\Elementor\Plugin' ) ) {
+                return;
+            }
+
+            // Enqueue Elementor and Elementor Pro styles
+            $elementor = \Elementor\Plugin::instance();
+            $elementor->frontend->enqueue_styles();
+            
+            if ( class_exists( '\ElementorPro\Plugin' ) ) {
+                $elementor_pro = \ElementorPro\Plugin::instance();
+                $elementor_pro->enqueue_styles();
+            }
+
+            // Enqueue styles for various sections if they exist
+            $section_ids = [
+                'header' => jws_get_header_id(),
+                'before_header' => jws_get_before_header_id(),
+                'after_header' => jws_get_after_header_id(),
+                'footer' => jws_get_footer_id(),
+                'before_footer' => jws_get_before_footer_id(),
+                'after_footer' => jws_get_after_footer_id(),
+                'single_listing' => jws_get_single_listing_id(),
+                'single_agent' => jws_get_single_agent_id(),
+                'single_agency' => jws_get_single_agency_id(),
+                'single_post' => jws_get_single_post_id()
+            ];
+
+            foreach ($section_ids as $id) {
+                $this->enqueue_section_styles($id);
+            }
+        }
+
+        /**
+         * Enqueue styles for a specific section if the section ID is valid.
+         *
+         * @param int|false $section_id The ID of the section.
+         */
+        private function enqueue_section_styles($section_id) {
+            if (!$section_id) {
+                return;
+            }
+
+            if (class_exists('\Elementor\Core\Files\CSS\Post')) {
+                $css_file = new \Elementor\Core\Files\CSS\Post($section_id);
+            } elseif (class_exists('\Elementor\Post_CSS_File')) {
+                $css_file = new \Elementor\Post_CSS_File($section_id);
+            }
+            $css_file->enqueue();
+        }
+
+
+        /**
+         * Renders content for a shortcode.
+         *
+         * This method handles the shortcode rendering process by enqueuing necessary styles and
+         * retrieving the content generated by Elementor based on the provided shortcode attributes.
+         *
+         * @param array $atts Attributes for the shortcode.
+         * @return string The rendered content.
+         */
+        public function render_shortcode($atts) {
+            // Parse and sanitize the shortcode attributes
+            $atts = shortcode_atts(['id' => ''], $atts, 'jws_template');
+            $id = !empty($atts['id']) ? intval(apply_filters('jws_render_template_id', $atts['id'])) : '';
+
+            // Return early if the ID is empty
+            if (empty($id)) {
+                return '';
+            }
+
+            // Enqueue the CSS file for the Elementor content, if available
+            $this->enqueue_elementor_css($id);
+
+            // Return the content rendered by Elementor
+            return self::$elementor_instance->frontend->get_builder_content_for_display($id);
+        }
+
+        /**
+         * Enqueues Elementor CSS file for a given post ID.
+         *
+         * @param int $id The post ID.
+         */
+        private function enqueue_elementor_css($id) {
+            if (class_exists('\Elementor\Core\Files\CSS\Post')) {
+                $css_file = new \Elementor\Core\Files\CSS\Post($id);
+            } elseif (class_exists('\Elementor\Post_CSS_File')) {
+                $css_file = new \Elementor\Post_CSS_File($id);
+            }
+
+            if (isset($css_file)) {
+                $css_file->enqueue();
+            }
+        }
+
+
+        /**
+         * Get Elemetor Content Template.
+         *
+         * @param boolean $with_css | with css.
+         * @return Header Template.
+         */
+        public static function get_elementor_template( $id = null, $with_css = false ) {
+
+            $id = !empty($id) ? intval(apply_filters('jws_render_template_id', $id)) : '';
+            return self::$elementor_instance->frontend->get_builder_content_for_display( $id );
+        }
+
+        public function add_preview_settings_section(\Elementor\Controls_Stack $controls_stack) {
+            if(smarthome_tb_get_template_type(get_the_ID()) === 'single-listing' || smarthome_tb_get_template_type(get_the_ID()) === 'loop-item') {
+                $controls_stack->start_controls_section(
+                    'smarthome_preview_settings',
+                    [
+                        'label' => esc_html__( 'Preview Settings', 'smarthome-studio' ),
+                        'tab' => Controls_Manager::TAB_SETTINGS,
+                    ]
+                );
+
+                $post_types = [
+                    'post' => __('Post', 'smarthome-studio'),
+                    'page' => __('Page', 'smarthome-studio'),
+                ];
+                $post_types_data = get_post_types(array(
+                    'public' => true,
+                    '_builtin' => false
+                ), 'objects');
+
+                foreach ($post_types_data as $post_type) {
+                    if (!empty($post_type->name) && !in_array($post_type->name, ['elementor_library', 'jws_builder', 'e-landing-page', 'page'])) {
+                        $post_types[$post_type->name] = $post_type->label;
+                    }
+                }
+
+                $controls_stack->add_control(
+                    'smarthome_preview_type',
+                    [
+                        'label' => __('Post Type to Preview Dynamic Content', 'smarthome-studio'),
+                        'type' => \Elementor\Controls_Manager::SELECT,
+                        'label_block' => true,
+                        'options' => $post_types,
+                        'default' => 'post',
+                        'save_always' => 'true',
+                    ]
+                );
+
+                foreach ($post_types as $post_type_name => $post_type_label) {
+                    $controls_stack->add_control(
+                        'smarthome_preview_post_' . $post_type_name,
+                        [
+                            'label' => __('Select Post', 'smarthome-studio'),
+                            'type' => 'smarthome_autocomplete',
+                            'make_search' => 'smarthome_get_posts',
+                            'render_result' => 'smarthome_render_posts_title',
+                            'post_type' => $post_type_name,
+                            'label_block' => true,
+                            'multiple' => false,
+                            'condition' => [
+                                'smarthome_preview_type' => $post_type_name,
+                            ],
+                        ]
+                    );
+                
+                }
+
+                $controls_stack->add_control(
+                    'smarthome_apply_preview',
+                    [
+                        'type' => Controls_Manager::BUTTON,
+                        'label' => esc_html__( 'Apply & Preview', 'smarthome-studio' ),
+                        'label_block' => true,
+                        'show_label' => false,
+                        'text' => esc_html__( 'Apply & Preview', 'smarthome-studio' ),
+                        'separator' => 'none',
+                        'event' => 'elementorThemeBuilder:ApplyPreview',
+                    ]
+                );
+
+                /*if'smarthome_get_template_type(get_the_ID()) === 'loop-item') {
+                    $controls_stack->add_responsive_control(
+                        'smarthome_preview_width',
+                        [
+                            'label' => esc_html__( 'Width', 'smarthome-studio' ),
+                            'type' => Controls_Manager::SLIDER,
+                            'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+                            'range' => [
+                                'px' => [
+                                    'min' => 200,
+                                    'max' => 1140,
+                                ],
+                            ],
+                            'selectors' => [
+                                '{{WRAPPER}} #main-content .smarthome-template-wrapper > .elementor' => 'width: {{SIZE}}{{UNIT}};',
+                            ],
+                        ]
+                    );
+                }*/
+
+                $controls_stack->end_controls_section();
+            }
+
+        }
+
+
+    }
+}
+JWS_Elementor::instance();
