@@ -333,10 +333,6 @@ class Jwsthemes_Field_Manager {
 
 	private static function Unique_Pages() {
 	    $special_pages = array(
-	        'unique-all-listings'    => __('All Listings Pages', 'smarthome-studio'),
-	        'unique-listings-search'    => __('Listings Search Page', 'smarthome-studio'),
-	        'unique-all-agents'    => __('All Agents Page', 'smarthome-studio'),
-	        'unique-all-agencies'    => __('All Agencies Page', 'smarthome-studio'),
 	        'unique-404'    => __('404 Page', 'smarthome-studio'),
 	        'unique-search' => __('Blog / Search Page', 'smarthome-studio'),
 	        'unique-blog'   => __('Blog / Posts Page', 'smarthome-studio'),
@@ -668,10 +664,6 @@ class Jwsthemes_Field_Manager {
             'unique-front'    	 => 'Front Page',
             'unique-date'     	 => 'Date Archive',
             'unique-author'   	 => 'Author Archive',
-            'unique-all-listings'=> 'All Listings Pages',
-            'unique-listings-search'=> 'Listings Search Page',
-            'unique-all-agents'	 => 'All Agents Page',
-            'unique-all-agencies' => 'All Agencies Page',
             'unique-woo-shop' 	 => 'WooCommerce Shop Page',
             'page|all'  		 => 'All Pages',
             'post|all'  		 => 'All Posts',
@@ -738,12 +730,6 @@ class Jwsthemes_Field_Manager {
 	    }
 	    if (is_front_page()) {
 	        return 'is_front_page';
-	    }
-	    if ( smarthome_is_listings_template() ) {
-	        return 'is_listings_template';
-	    }
-	    if ( smarthome_is_search_result() ) {
-	        return 'is_listings_search';
 	    }
 	    if (is_singular('post')) {
 	        return 'is_single_post';
@@ -955,26 +941,6 @@ class Jwsthemes_Field_Manager {
 	    switch ($current_page_type) {
 	        case 'is_404':
 	            $meta_args .= " OR pm.meta_value LIKE '%\"unique-404\"%'";
-	            break;
-	        case 'is_listings_template':
-	        	$current_id = get_the_ID();
-	            self::$current_page_data['current_post_id'] = $current_id;
-	            $meta_args .= " OR pm.meta_value LIKE '%\"unique-all-listings\"%'";
-	            break;
-	        case 'is_agents_template':
-	        	$current_id = get_the_ID();
-	            self::$current_page_data['current_post_id'] = $current_id;
-	            $meta_args .= " OR pm.meta_value LIKE '%\"unique-all-agents\"%'";
-	            break;
-	        case 'is_agencies_template':
-	        	$current_id = get_the_ID();
-	            self::$current_page_data['current_post_id'] = $current_id;
-	            $meta_args .= " OR pm.meta_value LIKE '%\"unique-all-agencies\"%'";
-	            break;
-	       case 'is_listings_search':
-	       		$current_id = get_the_ID();
-	            self::$current_page_data['current_post_id'] = $current_id;
-	            $meta_args .= " OR pm.meta_value LIKE '%\"unique-listings-search\"%'";
 	            break;
 	        case 'is_search':
 	            $meta_args .= " OR pm.meta_value LIKE '%\"unique-search\"%'";
@@ -1252,10 +1218,6 @@ class Jwsthemes_Field_Manager {
 		$rule_key = $this->get_rule_key($rule); 
 		switch ($rule_key) {
 		    case 'standard-global':
-		    case 'unique-all-listings':
-		    case 'unique-listings-search':
-		    case 'unique-all-agents':
-		    case 'unique-all-agencies':
 		    case 'unique-404':
 		    case 'unique-search':
 		    case 'unique-blog':
@@ -1311,14 +1273,6 @@ class Jwsthemes_Field_Manager {
 				return is_date();
 			case 'unique-author':
 				return is_author();
-			case 'unique-all-listings':
-				return smarthome_is_listings_template();
-			case 'unique-listings-search':
-				return smarthome_is_search_result();
-			case 'unique-all-agents':
-				return smarthome_is_agents_template();
-			case 'unique-all-agencies':
-				return smarthome_is_agencies_template();
 			case 'unique-woo-shop':
 			return
 
