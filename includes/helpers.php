@@ -455,55 +455,6 @@ function jws_render_after_footer() {
  * @since  1.0.0
  * @return bool Returns true if the single listing is active, false if it is inactive.
  */
-function jws_single_listing_enabled() {
-    return apply_filters('jws_single_listing_enabled', jws_get_single_listing_id() !== false);
-}
-
-/**
- * Fetches the single listing ID from the plugin settings.
- *
- * @since  1.0.0
- * @return string|false The single listing ID if set, false otherwise.
- */
-function jws_get_single_listing_id() {
-    $single_listing_id = SmarthomeStudio\JWS_Render_Template::instance()->fetch_plugin_settings('single-listing');
-    return $single_listing_id !== '' ? $single_listing_id : false;
-}
-
-/**
- * Renders the single listing markup.
- *
- * @since  1.0.0
- */
-function jws_render_single_listing() {
-    if (!jws_single_listing_enabled()) {
-        return;
-    }?>
-    <div class="htb-single-listing-wrapper htb-single-listing">
-        <?php jws_get_single_listing_template(); ?>
-    </div>
-    <?php
-}
-
-/**
- * Returns the single listing template ID.
- *
- * @since  1.0.0
- * @return string|false The single listing template ID if set, false otherwise.
- */
-function jws_single_listing_template_id() {
-    return apply_filters('jws_single_listing_template_id', jws_get_single_listing_id());
-}
-
-/**
- * Echoes the single listing Template.
- *
- * @since  1.0.0
- */
-function jws_get_single_listing_template() {
-    echo SmarthomeStudio\JWS_Elementor::get_elementor_template(jws_single_listing_template_id()); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-}
-
 /*-------------------------------------------------------------------------------------------------*/
 /* Single Room
 /*-------------------------------------------------------------------------------------------------*/
@@ -571,55 +522,6 @@ function jws_get_single_room_template() {
  * @since  1.0.0
  * @return bool Returns true if the single agent is active, false if it is inactive.
  */
-function jws_single_agent_enabled() {
-    return apply_filters('jws_single_agent_enabled', jws_get_single_agent_id() !== false);
-}
-
-/**
- * Fetches the single agent ID from the plugin settings.
- *
- * @since  1.0.0
- * @return string|false The single agent ID if set, false otherwise.
- */
-function jws_get_single_agent_id() {
-    $single_agent_id = SmarthomeStudio\JWS_Render_Template::instance()->fetch_plugin_settings('single-agent');
-    return $single_agent_id !== '' ? $single_agent_id : false;
-}
-
-/**
- * Renders the single agent markup.
- *
- * @since  1.0.0
- */
-function jws_render_single_agent() {
-    if (!jws_single_agent_enabled()) {
-        return;
-    }?>
-    <div class="htb-single-agent-wrapper htb-single-agent">
-        <?php jws_get_single_agent_template(); ?>
-    </header>
-    <?php
-}
-
-/**
- * Returns the single agent template ID.
- *
- * @since  1.0.0
- * @return string|false The single agent template ID if set, false otherwise.
- */
-function jws_single_agent_template_id() {
-    return apply_filters('jws_single_agent_template_id', jws_get_single_agent_id());
-}
-
-/**
- * Echoes the single agent Template.
- *
- * @since  1.0.0
- */
-function jws_get_single_agent_template() {
-    echo SmarthomeStudio\JWS_Elementor::get_elementor_template(jws_single_agent_template_id()); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-}
-
 /*-------------------------------------------------------------------------------------------------*/
 /* Single Agency
 /*-------------------------------------------------------------------------------------------------*/
@@ -630,55 +532,6 @@ function jws_get_single_agent_template() {
  * @since  1.0.0
  * @return bool Returns true if the single agency is active, false if it is inactive.
  */
-function jws_single_agency_enabled() {
-    return apply_filters('jws_single_agency_enabled', jws_get_single_agency_id() !== false);
-}
-
-/**
- * Fetches the single agency ID from the plugin settings.
- *
- * @since  1.0.0
- * @return string|false The single agency ID if set, false otherwise.
- */
-function jws_get_single_agency_id() {
-    $single_agency_id = SmarthomeStudio\JWS_Render_Template::instance()->fetch_plugin_settings('single-agency');
-    return $single_agency_id !== '' ? $single_agency_id : false;
-}
-
-/**
- * Renders the single agency markup.
- *
- * @since  1.0.0
- */
-function jws_render_single_agency() {
-    if (!jws_single_agency_enabled()) {
-        return;
-    }?>
-    <div class="htb-single-agency-wrapper htb-single-agency">
-        <?php jws_get_single_agency_template(); ?>
-    </header>
-    <?php
-}
-
-/**
- * Returns the single agency template ID.
- *
- * @since  1.0.0
- * @return string|false The single agency template ID if set, false otherwise.
- */
-function jws_single_agency_template_id() {
-    return apply_filters('jws_single_agency_template_id', jws_get_single_agency_id());
-}
-
-/**
- * Echoes the single agency Template.
- *
- * @since  1.0.0
- */
-function jws_get_single_agency_template() {
-    echo SmarthomeStudio\JWS_Elementor::get_elementor_template(jws_single_agency_template_id()); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-}
-
 /*-------------------------------------------------------------------------------------------------*/
 /* Single Post
 /*-------------------------------------------------------------------------------------------------*/

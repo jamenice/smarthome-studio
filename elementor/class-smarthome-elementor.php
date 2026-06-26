@@ -114,9 +114,6 @@ if( ! class_exists( 'JWS_Elementor' ) ) {
                 'footer' => jws_get_footer_id(),
                 'before_footer' => jws_get_before_footer_id(),
                 'after_footer' => jws_get_after_footer_id(),
-                'single_listing' => jws_get_single_listing_id(),
-                'single_agent' => jws_get_single_agent_id(),
-                'single_agency' => jws_get_single_agency_id(),
                 'single_post' => jws_get_single_post_id()
             ];
 

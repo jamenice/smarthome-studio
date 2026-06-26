@@ -94,10 +94,7 @@ class JWS_Render_Template {
         
         add_action( 'smarthome_title_bar_studio', array( $this, 'render_title_bar' ), 10 );
 
-		add_action( 'smarthome_single_listing', array( $this, 'render_single_listing' ), 10 );
 		add_action( 'smarthome_single_room', array( $this, 'render_single_room' ), 10 );
-		add_action( 'smarthome_single_agent', array( $this, 'render_single_agent' ), 10 );
-		add_action( 'smarthome_single_agency', array( $this, 'render_single_agency' ), 10 );
 		add_action( 'smarthome_single_post', array( $this, 'render_single_post' ), 10 );
 		
 	}
@@ -167,35 +164,11 @@ class JWS_Render_Template {
 	}
 
 	/**
-	 * Retrieve the single listing.
-	 */
-	public function render_single_listing() {
-
-		jws_render_single_listing();
-	}
-
-	/**
 	 * Retrieve the single room.
 	 */
 	public function render_single_room() {
 
 		jws_render_single_room();
-	}
-
-	/**
-	 * Retrieve the single agent.
-	 */
-	public function render_single_agent() {
-
-		jws_render_single_agent();
-	}
-
-	/**
-	 * Retrieve the single agency.
-	 */
-	public function render_single_agency() {
-
-		jws_render_single_agency();
 	}
 
 	/**
