@@ -10,10 +10,10 @@
  *
  * @link              https://themeforest.net/user/jwsthemes
  * @since             1.0.0
- * @package           Smarthome_Studio
+ * @package           Goyard_Studio
  *
  * @wordpress-plugin
- * Plugin Name:       Smarthome Studio
+ * Plugin Name:       Goyard Studio
  * Plugin URI:        https://studio.smarthome.co
  * Description:       Add header, footer, menu builder for jwsthemes themes
  * Version:           1.2.0
@@ -21,7 +21,7 @@
  * Author URI:        https://themeforest.net/user/jwsthemes/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       smarthome-studio
+ * Text Domain:       goyard-studio
  * Domain Path:       /languages
  */
 
