@@ -304,9 +304,6 @@ class Jwsthemes_Field_Manager {
 	            'value' => array(
 	                'standard-global'    => __('Entire Website', 'smarthome-studio'),
 	                'standard-singulars' => __('All Singulars', 'smarthome-studio'),
-	                'standard-single-listing' => __('All Single Listings', 'smarthome-studio'),
-	                'standard-single-agent' => __('All Single Agents', 'smarthome-studio'),
-	                'standard-single-agency' => __('All Single Agencies', 'smarthome-studio'),
 	                'standard-single-post' => __('All Single Posts', 'smarthome-studio'),
 	                'standard-archives'  => __('All Archives', 'smarthome-studio'),
 	            ),
@@ -654,9 +651,6 @@ class Jwsthemes_Field_Manager {
 	    $textMappings = array(
             'standard-global'    => 'Entire Site',
             'standard-singulars' => 'All Singulars',
-            'standard-single-listing' => 'All Single Listings',
-            'standard-single-agent' => 'All Single Agents',
-            'standard-single-agency' => 'All Single Agencies',
             'standard-single-post' => 'All Single Posts',
             'standard-archives'  => 'All Archives',
             'unique-404'      	 => '404 Page',

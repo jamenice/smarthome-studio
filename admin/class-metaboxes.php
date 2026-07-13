@@ -106,13 +106,7 @@ class Smarthome_Studio_Metaboxes {
 
 								<option value="tmp_footer" <?php selected( $template_type, 'tmp_footer' ); ?>><?php _e( 'Footer', 'smarthome-studio' ); ?></option>
 
-								<option value="single-listing" <?php selected( $template_type, 'single-listing' ); ?>><?php _e( 'Single Listing', 'smarthome-studio' ); ?></option>
-
 								<option value="single-room" <?php selected( $template_type, 'single-room' ); ?>><?php _e( 'Single Room', 'smarthome-studio' ); ?></option>
-
-								<option value="single-agent" <?php selected( $template_type, 'single-agent' ); ?>><?php _e( 'Single Agent', 'smarthome-studio' ); ?></option>
-
-								<option value="single-agency" <?php selected( $template_type, 'single-agency' ); ?>><?php _e( 'Single Agency', 'smarthome-studio' ); ?></option>
 
 								<option value="single-post" <?php selected( $template_type, 'single-post' ); ?>><?php _e( 'Single Post', 'smarthome-studio' ); ?></option>
 
